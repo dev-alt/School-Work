@@ -27,11 +27,11 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">SCP</a>
+          <a class="navbar-brand" href="index.html">SCP</a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
+            <li class="active"><a href="database.html">Home</a></li>
             <li>
               <a
                 href="database.html"
@@ -40,7 +40,6 @@
                 >Database</a
               >
               <ul class="dropdown-menu ddm">
-                <li><a href="database.html">Database</a></li>
                 <li><a href="#">scp-001</a></li>
                 <li><a href="scp-002.html">scp-002</a></li>
                 <li><a href="scp-003.html">scp-003</a></li>
@@ -66,92 +65,98 @@
         <div class="col-sm-2 sidenav hidden-xs"></div>
         <div class="col-sm-8 text-center">
           <h1 class="text-center casefile">SCP Case Files</h1>
-
-          <div class="col-md-6 col-lg-4">
-            <div class="card border-0">
-              <a href="#"
-                ><img
-                  class="card-img-top scale-on-hover"
-                  src="images/euclid.svg"
-                  alt="euclid"
-              /></a>
-              <div class="card-body">
-                <h3><a href="#">SCP 001</a></h3>
-                <p class="text-muted card-text">
-                  Awaiting De-classification [Blocked]
-                </p>
+          <div class="row">
+            <div class="col-md-2 col-md-offset-1"></div>
+            <div class="col-md-2">
+              <div class="card border-0">
+                <a href="#"
+                  ><img
+                    class="card-img-top scale-on-hover"
+                    src="images/euclid.svg"
+                    alt="euclid"
+					onclick="SCP001()"
+                /></a>
+                <div class="card-body">
+                  <h3><a href="#" onclick="SCP001()">SCP 001</a></h3>
+                  <p class="text-muted card-text">
+                    Awaiting De-classification [Blocked]
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="card border-0">
+                <a href="scp-002.html"
+                  ><img
+                    class="card-img-top scale-on-hover"
+                    src="images/euclid.svg"
+                    alt="euclid"
+                /></a>
+                <div class="card-body">
+                  <h3><a href="scp-002.html">SCP 002</a></h3>
+                  <p class="text-muted card-text">The "Living" Room</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="card border-0">
+                <a href="scp-003.html"
+                  ><img
+                    class="card-img-top scale-on-hover"
+                    src="images/euclid.svg"
+                    alt="euclid"
+                /></a>
+                <div class="card-body">
+                  <h3><a href="scp-003.html">SCP 003</a></h3>
+                  <p class="text-muted card-text">Biological Motherboard</p>
+                </div>
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-lg-4">
-            <div class="card border-0">
-              <a href="scp-002.html"
-                ><img
-                  class="card-img-top scale-on-hover"
-                  src="images/euclid.svg"
-                  alt="euclid"
-              /></a>
-              <div class="card-body">
-                <h3><a href="scp-002.html">SCP 002</a></h3>
-                <p class="text-muted card-text">The "Living" Room</p>
+          <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-2 col-md-offset-1">
+              <div class="card border-0">
+                <a href="scp-004.html"
+                  ><img
+                    class="card-img-top scale-on-hover"
+                    src="images/safe.svg"
+                    alt="Safe"
+                /></a>
+                <div class="card-body">
+                  <h3><a href="scp-004.html">SCP 004</a></h3>
+                  <p class="text-muted card-text">
+                    The 12 Rusty Keys and the Door
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <div class="card border-0">
-              <a href="scp-003.html"
-                ><img
-                  class="card-img-top scale-on-hover"
-                  src="images/euclid.svg"
-                  alt="euclid"
-              /></a>
-              <div class="card-body">
-                <h3><a href="scp-003.html">SCP 003</a></h3>
-                <p class="text-muted card-text">Biological Motherboard</p>
+            <div class="col-md-2">
+              <div class="card border-0">
+                <a href="scp-005.html"
+                  ><img
+                    class="card-img-top scale-on-hover"
+                    src="images/safe.svg"
+                    alt="Safe"
+                /></a>
+                <div class="card-body">
+                  <h3><a href="scp-005.html">SCP 005</a></h3>
+                  <p class="text-muted card-text">Skeleton Key</p>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <div class="card border-0">
-              <a href="scp-004.html"
-                ><img
-                  class="card-img-top scale-on-hover"
-                  src="images/safe.svg"
-                  alt="Safe"
-              /></a>
-              <div class="card-body">
-                <h3><a href="scp-004.html">SCP 004</a></h3>
-                <p class="text-muted card-text">
-                  The 12 Rusty Keys and the Door
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <div class="card border-0">
-              <a href="scp-005.html"
-                ><img
-                  class="card-img-top scale-on-hover"
-                  src="images/safe.svg"
-                  alt="Safe"
-              /></a>
-              <div class="card-body">
-                <h3><a href="scp-005.html">SCP 005</a></h3>
-                <p class="text-muted card-text">Skeleton Key</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <div class="card border-0">
-              <a href="scp-006.html"
-                ><img
-                  class="card-img-top scale-on-hover"
-                  src="images/euclid.svg"
-                  alt="euclid"
-              /></a>
-              <div class="card-body">
-                <h3><a href="scp-006.html">SCP 006</a></h3>
-                <p class="text-muted card-text">Fountain of Youth</p>
+            <div class="col-md-2">
+              <div class="card border-0">
+                <a href="scp-006.html"
+                  ><img
+                    class="card-img-top scale-on-hover"
+                    src="images/euclid.svg"
+                    alt="euclid"
+                /></a>
+                <div class="card-body">
+                  <h3><a href="scp-006.html">SCP 006</a></h3>
+                  <p class="text-muted card-text">Fountain of Youth</p>
+                </div>
               </div>
             </div>
           </div>
@@ -166,5 +171,6 @@
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	    <script src="theme.js"></script>
   </body>
 </html>
