@@ -1,0 +1,51 @@
+[
+    {
+        "id": 1,
+        "title": "SCP-001",
+        "item": "",
+        "class": "Euclid",
+        "image": "images/scp/SCP002.jpg",
+        "content": "Awaiting De-classification [Blocked]"
+    },
+    {
+        "id": 2,
+        "title": "SCP-002",
+        "item": "The 'Living' Room",
+        "class": "Euclid",
+        "image": "images/scp/SCP002.jpg",
+        "content": "SCP-002 is to remain connected to a suitable power supply at all times, to keep it in what appears to be a recharging mode. In case of electrical outage, the emergency barrier between the object and the facility is to be closed and the immediate area evacuated. Once facility power is re-established, alternating bursts of X-ray and ultraviolet light must strobe the area until SCP-002 is re-affixed to the power supply and returned to recharging mode. Containment area is to be kept at negative air pressure at all times."
+    },
+    {
+        "id": 3,
+        "title": "SCP-003",
+        "item": "Biological Motherboard",
+        "class": "Euclid",
+        "image": "images/scp/SCP002.jpg",
+        "content": "SCP-003 is to be maintained at a constant temperature of no less than 35°C and ideally kept above 100°C. No living multicellular organisms of Category IV or higher complexity may be allowed to come into contact with SCP-003."
+    },
+    {
+        "id": 4,
+        "title": "SCP-004",
+        "item": "The 12 Rusty Keys and the Door",
+        "class": "Euclid",
+        "image": "images/scp/SCP002.jpg",
+        "content": "When handling items SCP-004-2 through SCP-004-13, proper procedure is vital. The items are not permitted to be moved off-site unless accompanied by two Level 4 security personnel. Under no circumstances should any other component of SCP-004 be taken through SCP-004-1. The effects of doing so are as yet unknown, and the current cost of experimentation makes further research impractical. Should any of the objects contained within SCP-004-1 breach containment, or the facility be breached, the keys must be brought inside and the door closed prior to activation of Site 62’s on-site warhead. Unauthorized removal of keys from the testing area is grounds for immediate termination."
+    },
+    {
+        "id": 5,
+        "title": "SCP-005",
+        "item": "Skeleton Key",
+        "class": "Safe",
+        "image": "images/scp/SCP002.jpg",
+        "content": "SCP-005 poses no immediate risk in any direct sense. Even so, its unique functions require special measures be taken to restrict access and manipulation of the object. Approval of at least one (1) Level 4 personnel is required for the removal of the object from its containment area."
+    },
+    {
+        "id": 6,
+        "title": "SCP-006",
+        "item": "Fountain of Youth",
+        "class": "Safe",
+        "image": "images/scp/SCP002.jpg",
+        "content": "All personnel interacting with SCP-006 in any physical way are required to wear modified class VI BNC suits. Before personnel are allowed to perform procedures, they must be briefed with Material SCP-006B or SCP-006C. SCP-006A Briefing is the correct one and is restricted to only those with O5 clearance. To assure personnel are wearing suits properly, they are to be submerged into a pool of water. Any air bubbles spotted signify a leak in the suit."
+    }
+   
+    ]
