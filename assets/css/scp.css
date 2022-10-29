@@ -1,0 +1,111 @@
+/* .bg-image::before
+{
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background-color: rgba(0,0,0,0.25);
+} */
+.titleSCP
+{
+    margin-top: 2em;
+    font-weight: bold;
+    color: rgb(99, 13, 13)
+}
+.scp_object_class{
+    float: right;
+    width: 105px;
+}
+.bg-image{
+    background-image: url("images/icons/scp-foundation-256.svg");
+    background-repeat: no-repeat;
+}
+.scp-foundation { 
+    display: inline-block;
+    width: 720px;
+    height: 720px;
+    background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4Igp3aWR0aD0iNDgwIiBoZWlnaHQ9IjQ4MCIKdmlld0JveD0iMCAwIDQwIDQwIgpzdHlsZT0iIGZpbGw6IzAwMDAwMDsiPjxwYXRoIGZpbGw9IiM5OGNjZmQiIGQ9Ik0zOS4yOTEsMjUuNzg3bC0yLjk3Ni0yLjQ1QzM2LjQyNCwyMi41NzIsMzYuNSwyMS43OTYsMzYuNSwyMWMwLTYuOTQ0LTQuMjk1LTEyLjg3NS0xMC4zNjgtMTUuMzEJTDI1LjUsMS45aC0xMWwtMC42MzIsMy43OUM3Ljc5NSw4LjEyNSwzLjUsMTQuMDU2LDMuNSwyMWMwLDAuNzk2LDAuMDc2LDEuNTcyLDAuMTg0LDIuMzM3bC0yLjk3NiwyLjQ1bDUuNSw5LjUyNmwzLjYwNC0xLjM1CUMxMi42MiwzNi4xNzIsMTYuMTUyLDM3LjUsMjAsMzcuNXM3LjM4LTEuMzI4LDEwLjE4Ny0zLjUzN2wzLjYwNCwxLjM1TDM5LjI5MSwyNS43ODd6Ij48L3BhdGg+PHBhdGggZmlsbD0iIzQ3ODhjNyIgZD0iTTIwLDM4Yy0zLjc0MywwLTcuMjg5LTEuMTk5LTEwLjI3My0zLjQ3MUw1Ljk4NywzNS45M0wwLjA2NCwyNS42N2wzLjA4Ny0yLjU0MglDMy4wNDgsMjIuMzQzLDMsMjEuNjYxLDMsMjFDMywxNC4xMTQsNy4wODEsNy45OTUsMTMuNDIxLDUuMzMzTDE0LjA3NiwxLjRoMTEuODQ4bDAuNjU1LDMuOTM0QzMyLjkxOSw3Ljk5NSwzNywxNC4xMTQsMzcsMjEJYzAsMC42NjEtMC4wNDgsMS4zNDMtMC4xNTEsMi4xMjlsMy4wODcsMi41NDJMMzQuMDEzLDM1LjkzbC0zLjczOS0xLjQwMUMyNy4yODksMzYuODAxLDIzLjc0MywzOCwyMCwzOHogTTkuOSwzMy4zOTZsMC4yMjIsMC4xNzQJQzEyLjk3NCwzNS44MTQsMTYuMzksMzcsMjAsMzdzNy4wMjYtMS4xODYsOS44NzgtMy40M2wwLjIyMi0wLjE3NGwzLjQ3LDEuM2w1LjA3Ny04Ljc5MmwtMi44NjYtMi4zNTlsMC4wNC0wLjI3OAlDMzUuOTQzLDIyLjQwOSwzNiwyMS42ODksMzYsMjFjMC02LjU2OS0zLjk0Ni0xMi4zOTYtMTAuMDU1LTE0Ljg0NkwyNS42ODUsNi4wNUwyNS4wNzYsMi40SDE0LjkyNGwtMC42MDgsMy42NWwtMC4yNjEsMC4xMDQJQzcuOTQ2LDguNjA0LDQsMTQuNDMxLDQsMjFjMCwwLjY4OSwwLjA1NywxLjQwOSwwLjE4LDIuMjY3bDAuMDQsMC4yNzhsLTIuODY2LDIuMzU5bDUuMDc3LDguNzkyTDkuOSwzMy4zOTZ6Ij48L3BhdGg+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTIwLDMyYy02LjA2NSwwLTExLTQuOTM1LTExLTExczQuOTM1LTExLDExLTExczExLDQuOTM1LDExLDExUzI2LjA2NSwzMiwyMCwzMnogTTIwLDEyCWMtNC45NjMsMC05LDQuMDM4LTksOXM0LjAzNyw5LDksOXM5LTQuMDM4LDktOVMyNC45NjMsMTIsMjAsMTJ6Ij48L3BhdGg+PHBvbHlnb24gZmlsbD0iI2ZmZiIgcG9pbnRzPSIyMSwxNiAyMCwxNyAxOSwxNiAxOSw3LjA0MyAyMSw3LjA0MyI+PC9wb2x5Z29uPjxwb2x5Z29uIGZpbGw9IiNmZmYiIHBvaW50cz0iMTcuNiwxNiAyMi40LDE2IDIwLDIwIj48L3BvbHlnb24+PHBvbHlnb24gZmlsbD0iI2ZmZiIgcG9pbnRzPSIxNS4xNywyMi42MzQgMTYuNTM2LDIzIDE2LjE3LDI0LjM2NiA4LjQxMywyOC44NDQgNy40MTMsMjcuMTEyIj48L3BvbHlnb24+PHBvbHlnb24gZmlsbD0iI2ZmZiIgcG9pbnRzPSIxNi44NywyNS41NzggMTQuNDcsMjEuNDIyIDE5LjEzNCwyMS41Ij48L3BvbHlnb24+PHBvbHlnb24gZmlsbD0iI2ZmZiIgcG9pbnRzPSIyMy44MywyNC4zNjYgMjMuNDY0LDIzIDI0LjgzLDIyLjYzNCAzMi41ODcsMjcuMTEyIDMxLjU4NywyOC44NDQiPjwvcG9seWdvbj48cG9seWdvbiBmaWxsPSIjZmZmIiBwb2ludHM9IjI1LjUzLDIxLjQyMiAyMy4xMywyNS41NzggMjAuODY2LDIxLjUiPjwvcG9seWdvbj48L3N2Zz4=') 100% 100% no-repeat;
+    background-size: 100%; }
+/* .bg-image::before{
+    content: "";
+    background-image: url("images/icons/scp-foundation-256.svg");
+    background-size: cover;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: 0.75;
+
+}
+.bg-image{
+    position: relative; 
+    max-width:100%;
+    max-height:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} */
+/* .bg-image{
+    background-image: url("images/icons/scp-foundation-256.svg");
+    position: relative; 
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+} */
+.scp-content
+{
+    position: absolute;
+    opacity: 1;
+}
+
+
+
+
+
+.pg-header {
+    padding: 0px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    background-size: cover;
+    background-position: 50% center;
+  }
+  .min-vh-25 {
+    min-height: 50vh !important;
+  }
+.z-index-100
+{
+    z-index: 10;
+}
+.footerbg
+{
+    background-color: #000000;
+}
+.bodybg
+{
+    background-color: #e3e3e3;
+}
+.btn-danger
+{
+    background-color: #ff0000;
+    border-color: #ff0000;
+    color: white;
+}
+.scpicon
+{
+    background: url("../images/icons/scp-foundation-blue-ui-16.png");
+    height: 20px;
+    width: 20px;
+    display: block;
+    background-size: cover;
+}
+.scpf{
+ color: #ff0000;
+}
