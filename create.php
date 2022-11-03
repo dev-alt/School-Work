@@ -2,102 +2,87 @@
 
 include 'connection.php';
 
- if(isset($_POST['update']))
-    {
-        // Create variables from our form post data
-            $id = $_POST['id'];
-        
-        
-        // using escape method (procedule Style) to allow certain characters to be inserted into DB
-            $item = mysqli_real_escape_string($conn, $_POST['item']);
-            $object_class = mysqli_real_escape_string($conn, $_POST['object_class']);
-            $image = mysqli_real_escape_string($conn, $_POST['image']);
-            $special_containment_procedures = mysqli_real_escape_string($conn, $_POST['special_containment_procedures']);
-            $description = mysqli_real_escape_string($conn, $_POST['description']);
-            $addendum = mysqli_real_escape_string($conn, $_POST['addendum']);
-        
-        // create a sql update command
-        $update = "update scp set item='$item', object_class='$object_class', special_containment_procedures='$special_containment_procedures', description='$description', addendum='$addendum' where id='$id'";
-        
-        if($conn->query($update) === TRUE)
-        {
-            echo "
-                <h1>Record updated successfully</h1>
-                <p><a href='index.php'>Return to index page.</a></p>
+if (isset($_POST['submit'])) {
+    // create variables from our form post data
+    $item = mysqli_real_escape_string($conn, $_POST['item']);
+    $object_class = mysqli_real_escape_string($conn, $_POST['object_class']);
+    $image = mysqli_real_escape_string($conn, $_POST['image']);
+    $special_containment_procedures = mysqli_real_escape_string($conn, $_POST['special_containment_procedures']);
+    $description = mysqli_real_escape_string($conn, $_POST['description']);
+    $addendum = mysqli_real_escape_string($conn, $_POST['addendum']);
+
+
+    // create sql command to insert above values into our DB
+    $insert = "INSERT INTO scp (item, object_class,special_containment_procedures, description, addendum) VALUES ('$item','$object_class','$special_containment_procedures','$description', '$addendum')";
+
+    if ($conn->query($insert) === TRUE) {
+        echo "
+            <h1>Record added successfully</h1>
+            <p><a href='index.php'>Return to index page</a></p>
             ";
-        }
-        else
-        {
-            header("location: error.php");
-            exit();
-        }
-        
-    } // end isset POST (update record)
-    
-        $id = $_GET['update'];
-        $record = $conn->query("select * from scp where id=$id");
-        $row = $record->fetch_assoc();
+    } else {
+        header("location: error.php");
+        exit();
+    }
+} // end isset POST ( insert or create record )
+
 
 ?>
-
 <!doctype html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>SCP Foundation</title>
+    <title>SCP Foundation add entry</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="stylesheet" href="./assets/css/style2.css">
-    <link rel="stylesheet" href="./assets/css/scp.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style2.css">
+    <link rel="stylesheet" href="assets/css/scp.css">
 </head>
 
 <body class="bodybg">
-
 
     <!-- Layout wrapper -->
     <div class="layout-wrapper layout-content-navbar">
         <div class="layout-container">
             <!-- Menu -->
-         <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
-          <div class="app-brand demo">
-            <a href="index.php" class="app-brand-link">
-              <span class="app-brand-logo demo">
-              </span>
-              <span class="app-brand-text demo menu-text fw-bolder ms-2">SCP Foundation</span>
-            </a>
+            <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+                <div class="app-brand demo">
+                    <a href="index.php" class="app-brand-link">
+                        <span class="app-brand-logo demo">
+                        </span>
+                        <span class="app-brand-text demo menu-text fw-bolder ms-2">SCP Foundation</span>
+                    </a>
 
-            <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
-              <i class="bx bx-chevron-left bx-sm align-middle"></i>
-            </a>
-          </div>
+                    <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
+                        <i class="bx bx-chevron-left bx-sm align-middle"></i>
+                    </a>
+                </div>
 
-          <div class="menu-inner-shadow"></div>
+                <div class="menu-inner-shadow"></div>
 
-          <ul class="menu-inner py-1">
-            <!-- Dashboard -->
-            <li class="menu-item">
-              <a href="index.php" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                <div data-i18n="Analytics">Home</div>
-              </a>
-            </li>
-            <li class="menu-item">
-              <a href="create.php" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                <div data-i18n="Analytics">Create</div>
-              </a>
-            </li>
-            <!-- Layouts -->
-            <li class="menu-header small text-uppercase">
-              <span class="menu-header-text">Subject Files</span>
-            </li>
-            
-              </ul>
-          </ul>
-        </aside>
-        <!-- / Menu -->
+                <ul class="menu-inner py-1">
+                    <!-- Dashboard -->
+                    <li class="menu-item">
+                        <a href="index.php" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                            <div data-i18n="Analytics">Home</div>
+                        </a>
+                    </li>
+                    <li class="menu-item active">
+                        <a href="create.php" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                            <div data-i18n="Analytics">Create</div>
+                        </a>
+                    </li>
+                    <!-- Layouts -->
+                    <li class="menu-header small text-uppercase">
+                        <span class="menu-header-text">Subject Files</span>
+                    </li>
+                </ul>
+            </aside>
+            <!-- / Menu -->
 
             <!-- Layout container -->
             <div class="layout-page">
@@ -122,15 +107,11 @@ include 'connection.php';
                                         Subject Files
                                     </a>
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-
                                         <?php foreach ($all_records as $link) : ?>
-                                            <li><a class="dropdown-item" href="index.php?link='<?php echo $link['item'] ?>'"><?php echo $link['item'] ?></a></li>
+                                            <li><a class="dropdown-item" href="index.php?link='<?php echo $link['item'] ?>'"><?php echo 'SCP-', $link['item'] ?></a></li>
                                         <?php endforeach; ?>
-
-
                                     </ul>
                                 </li>
-
                             </ul>
                             <form class="d-flex" onsubmit="return false">
                                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
@@ -149,7 +130,7 @@ include 'connection.php';
                     <!-- Content -->
 
                     <div class="container-xxl flex-grow-1 container-p-y">
-                        <h4 class="fw-bold py-3 mb-4">Update Entry</h4>
+                        <h4 class="fw-bold py-3 mb-4">Create Entry</h4>
 
                         <!-- Basic Layout -->
                         <div class="row">
@@ -164,10 +145,10 @@ include 'connection.php';
                                     <div class="card-body">
                                         <div class="mb-3">
                                             <form method="post" action="" class="form-group">
-                                                <input type="hidden" name="id" value="<?php echo $row['id']; ?>" <label class="form-label" for="basic-icon-default-fullname">Item #:</label>
+                                                <label class="form-label" for="basic-icon-default-fullname">Item #:</label>
                                                 <div class="input-group input-group-merge">
                                                     <span id="basic-icon-default-fullname2" class="input-group-text"><i class="scpicon"></i></span>
-                                                    <input type="text" class="form-control" id="basic-icon-default-fullname" placeholder="SCP-XXXX" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="item" value="<?php echo $row['item']; ?>" />
+                                                    <input type="number" class="form-control" id="basic-icon-default-fullname" placeholder="SCP-XXXX" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" name="item" required />
                                                 </div>
                                         </div>
 
@@ -175,7 +156,7 @@ include 'connection.php';
                                             <label class="form-label" for="basic-icon-default-company">Object Class:</label>
                                             <div class="input-group input-group-merge">
                                                 <span id="basic-icon-default-company2" class="input-group-text"><i class="scpicon"></i></span>
-                                                <input type="text" class="form-control" id="basic-icon-default-fullname" placeholder="indicate which class" aria-label="indicate which class" aria-describedby="basic-icon-default-fullname2" name="object_class" value="<?php echo $row['object_class']; ?>" />
+                                                <input type="text" class="form-control" id="basic-icon-default-fullname" placeholder="indicate which class" aria-label="indicate which class" aria-describedby="basic-icon-default-fullname2" name="object_class" required />
                                             </div>
                                         </div>
 
@@ -183,14 +164,15 @@ include 'connection.php';
                                             <label class="form-label" for="basic-icon-default-company">Image:</label>
                                             <div class="input-group input-group-merge">
                                                 <span id="basic-icon-default-company2" class="input-group-text"><i class="scpicon"></i></span>
-                                                <input type="file" class="form-control" id="basic-icon-default-fullname" placeholder="Upload Image" aria-label="image upload" aria-describedby="basic-icon-default-fullname2" name="image" value="<?php echo $row['image']; ?>" />
+                                                <input type="file" class="form-control" id="basic-icon-default-fullname" placeholder="Upload Image" aria-label="image upload" aria-describedby="basic-icon-default-fullname2" name="image" />
                                             </div>
                                         </div>
 
                                         <div class="mb-3">
+                                            <label class="form-label" for="basic-icon-default-company">Special Containment Procedures:</label>
                                             <div class="input-group input-group-merge">
                                                 <span id="basic-icon-default-company2" class="input-group-text"><i class="scpicon"></i></span>
-                                                <textarea id="basic-icon-default-message" class="form-control" placeholder="Paragraphs explaining the procedures" aria-label="Paragraphs explaining the procedures" aria-describedby="basic-icon-default-message2" name="special_containment_procedures"><?php echo $row['special_containment_procedures']; ?></textarea>
+                                                <textarea id="basic-icon-default-message" class="form-control" placeholder="Paragraphs explaining the procedures" aria-label="Paragraphs explaining the procedures" aria-describedby="basic-icon-default-message2" name="special_containment_procedures" required></textarea>
                                             </div>
                                         </div>
 
@@ -198,7 +180,7 @@ include 'connection.php';
                                             <label class="form-label" for="basic-icon-default-phone">Description:</label>
                                             <div class="input-group input-group-merge">
                                                 <span id="basic-icon-default-phone2" class="input-group-text"><i class="scpicon"></i></span>
-                                                <textarea id="basic-icon-default-message" class="form-control" placeholder="Paragraphs explaining the description" aria-label="Paragraphs explaining the description" aria-describedby="basic-icon-default-message2" name="description"><?php echo $row['description']; ?></textarea>
+                                                <textarea id="basic-icon-default-message" class="form-control" placeholder="Paragraphs explaining the description" aria-label="Paragraphs explaining the description" aria-describedby="basic-icon-default-message2" name="description"></textarea>
                                             </div>
                                         </div>
 
@@ -206,11 +188,11 @@ include 'connection.php';
                                             <label class="form-label" for="basic-icon-default-message">Addendum:</label>
                                             <div class="input-group input-group-merge">
                                                 <span id="scpicon" class="input-group-text"><i class="scpicon"></i></span>
-                                                <textarea id="basic-icon-default-message" class="form-control" placeholder="Optional additional paragraphs" aria-label="Hi, Do you have a moment to talk Joe?" aria-describedby="basic-icon-default-message2" name="addendum"><?php echo $row['addendum']; ?></textarea>
+                                                <textarea id="basic-icon-default-message" class="form-control" placeholder="Optional additional paragraphs" aria-label="Hi, Do you have a moment to talk Joe?" aria-describedby="basic-icon-default-message2" name="addendum"></textarea>
                                             </div>
                                         </div>
 
-                                        <input type="submit" name="update" value="Update record" class="btn rounded-pill btn-primary">
+                                        <input type="submit" class="btn rounded-pill btn-success" name="submit">
 
                                         </form>
                                     </div>
