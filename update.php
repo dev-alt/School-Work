@@ -1,3 +1,45 @@
+<?php
+
+include 'connection.php';
+
+ if(isset($_POST['update']))
+    {
+        // Create variables from our form post data
+            $id = $_POST['id'];
+        
+        
+        // using escape method (procedule Style) to allow certain characters to be inserted into DB
+            $item = mysqli_real_escape_string($conn, $_POST['item']);
+            $object_class = mysqli_real_escape_string($conn, $_POST['object_class']);
+            $image = mysqli_real_escape_string($conn, $_POST['image']);
+            $special_containment_procedures = mysqli_real_escape_string($conn, $_POST['special_containment_procedures']);
+            $description = mysqli_real_escape_string($conn, $_POST['description']);
+            $addendum = mysqli_real_escape_string($conn, $_POST['addendum']);
+        
+        // create a sql update command
+        $update = "update scp set item='$item', object_class='$object_class', special_containment_procedures='$special_containment_procedures', description='$description', addendum='$addendum' where id='$id'";
+        
+        if($conn->query($update) === TRUE)
+        {
+            echo "
+                <h1>Record updated successfully</h1>
+                <p><a href='index.php'>Return to index page.</a></p>
+            ";
+        }
+        else
+        {
+            header("location: error.php");
+            exit();
+        }
+        
+    } // end isset POST (update record)
+    
+        $id = $_GET['update'];
+        $record = $conn->query("select * from scp where id=$id");
+        $row = $record->fetch_assoc();
+
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -12,15 +54,6 @@
 </head>
 
 <body class="bodybg">
-    <?php
-
-    include "connection.php";
-
-    $id = $_GET['update'];
-    $record = $conn->query("select * from scp where id=$id");
-    $row = $record->fetch_assoc();
-
-    ?>
 
 
     <!-- Layout wrapper -->
@@ -60,160 +93,8 @@
             <li class="menu-header small text-uppercase">
               <span class="menu-header-text">Subject Files</span>
             </li>
-            <li class="menu-item">
-              <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-dock-top"></i>
-                <div data-i18n="Account Settings">I</div>
-              </a>
-              <ul class="menu-sub">
-                <li class="menu-item">
-                  <a href="pages-account-settings-account.html" class="menu-link">
-                    <div data-i18n="Account">II</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="pages-account-settings-notifications.html" class="menu-link">
-                    <div data-i18n="Notifications">III</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="pages-account-settings-connections.html" class="menu-link">
-                    <div data-i18n="Connections">IV</div>
-                  </a>
-                </li>
+            
               </ul>
-            </li>
-            <li class="menu-item">
-              <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-lock-open-alt"></i>
-                <div data-i18n="Authentications">II</div>
-              </a>
-              <ul class="menu-sub">
-                <li class="menu-item">
-                  <a href="auth-login-basic.html" class="menu-link" target="_blank">
-                    <div data-i18n="Basic">Login</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="auth-register-basic.html" class="menu-link" target="_blank">
-                    <div data-i18n="Basic">Register</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="auth-forgot-password-basic.html" class="menu-link" target="_blank">
-                    <div data-i18n="Basic">Forgot Password</div>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="menu-item">
-              <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-cube-alt"></i>
-                <div data-i18n="Misc">III</div>
-              </a>
-              <ul class="menu-sub">
-                <li class="menu-item">
-                  <a href="pages-misc-error.html" class="menu-link">
-                    <div data-i18n="Error">Error</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="pages-misc-under-maintenance.html" class="menu-link">
-                    <div data-i18n="Under Maintenance">Under Maintenance</div>
-                  </a>
-                </li>
-              </ul>
-            </li>
-                        <li class="menu-item">
-              <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-cube-alt"></i>
-                <div data-i18n="Misc">IV</div>
-              </a>
-              <ul class="menu-sub">
-                <li class="menu-item">
-                  <a href="pages-misc-error.html" class="menu-link">
-                    <div data-i18n="Error">Error</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="pages-misc-under-maintenance.html" class="menu-link">
-                    <div data-i18n="Under Maintenance">Under Maintenance</div>
-                  </a>
-                </li>
-              </ul>
-            </li>
-                        <li class="menu-item">
-              <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-cube-alt"></i>
-                <div data-i18n="Misc">V</div>
-              </a>
-              <ul class="menu-sub">
-                <li class="menu-item">
-                  <a href="pages-misc-error.html" class="menu-link">
-                    <div data-i18n="Error">Error</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="pages-misc-under-maintenance.html" class="menu-link">
-                    <div data-i18n="Under Maintenance">Under Maintenance</div>
-                  </a>
-                </li>
-              </ul>
-            </li>
-                        <li class="menu-item">
-              <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-cube-alt"></i>
-                <div data-i18n="Misc">VI</div>
-              </a>
-              <ul class="menu-sub">
-                <li class="menu-item">
-                  <a href="pages-misc-error.html" class="menu-link">
-                    <div data-i18n="Error">Error</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="pages-misc-under-maintenance.html" class="menu-link">
-                    <div data-i18n="Under Maintenance">Under Maintenance</div>
-                  </a>
-                </li>
-              </ul>
-            </li>
-                        <li class="menu-item">
-              <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-cube-alt"></i>
-                <div data-i18n="Misc">VII</div>
-              </a>
-              <ul class="menu-sub">
-                <li class="menu-item">
-                  <a href="pages-misc-error.html" class="menu-link">
-                    <div data-i18n="Error">Error</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="pages-misc-under-maintenance.html" class="menu-link">
-                    <div data-i18n="Under Maintenance">Under Maintenance</div>
-                  </a>
-                </li>
-              </ul>
-            </li>
-                        <li class="menu-item">
-              <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-cube-alt"></i>
-                <div data-i18n="Misc">VIII</div>
-              </a>
-              <ul class="menu-sub">
-                <li class="menu-item">
-                  <a href="pages-misc-error.html" class="menu-link">
-                    <div data-i18n="Error">Error</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="pages-misc-under-maintenance.html" class="menu-link">
-                    <div data-i18n="Under Maintenance">Under Maintenance</div>
-                  </a>
-                </li>
-              </ul>
-            </li>
           </ul>
         </aside>
         <!-- / Menu -->
@@ -282,7 +163,7 @@
 
                                     <div class="card-body">
                                         <div class="mb-3">
-                                            <form method="post" action="connection.php" class="form-group">
+                                            <form method="post" action="" class="form-group">
                                                 <input type="hidden" name="id" value="<?php echo $row['id']; ?>" <label class="form-label" for="basic-icon-default-fullname">Item #:</label>
                                                 <div class="input-group input-group-merge">
                                                     <span id="basic-icon-default-fullname2" class="input-group-text"><i class="scpicon"></i></span>
