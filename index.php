@@ -1,3 +1,32 @@
+<?php
+
+include 'connection.php';
+
+if (isset($_GET['delete'])) {
+    $id = $_GET['delete'];
+    // delete sql command
+    $del = "delete from scp where id=$id";
+
+    if ($conn->query($del) === TRUE) {
+        echo " 
+        <div class='row row-cols-1 row-cols-md-3 g-4 mb-5'>';
+            <div class='col'>
+              <div class='card h-100 bg-transparant'>
+                <div class='card-body'>
+                    <h1>Record Deleted</h1>
+                        <p><a href='index.php'>Back to Index Page</a></p>
+                    </div>
+                  </div>
+                </div>
+        </div>
+            ";
+    } else {
+        header("location: error.php");
+        exit();
+    }
+} //end of delete
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -13,202 +42,49 @@
 </head>
 
 <body class="bodybg">
-    <?php include 'connection.php'; ?>
 
     <!-- Layout wrapper -->
     <div class="layout-wrapper layout-content-navbar">
         <div class="layout-container">
             <!-- Menu -->
-         <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
-          <div class="app-brand demo">
-            <a href="index.php" class="app-brand-link">
-              <span class="app-brand-logo demo">
-              </span>
-              <span class="app-brand-text demo menu-text fw-bolder ms-2">SCP Foundation</span>
-            </a>
+            <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+                <div class="app-brand demo">
+                    <a href="index.php" class="app-brand-link">
+                        <span class="app-brand-logo demo">
+                        </span>
+                        <span class="app-brand-text demo menu-text fw-bolder ms-2">SCP Foundation</span>
+                    </a>
 
-            <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
-              <i class="bx bx-chevron-left bx-sm align-middle"></i>
-            </a>
-          </div>
+                    <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
+                        <i class="bx bx-chevron-left bx-sm align-middle"></i>
+                    </a>
+                </div>
 
-          <div class="menu-inner-shadow"></div>
+                <div class="menu-inner-shadow"></div>
 
-          <ul class="menu-inner py-1">
-            <!-- Dashboard -->
-            <li class="menu-item active">
-              <a href="index.php" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                <div data-i18n="Analytics">Home</div>
-              </a>
-            </li>
-            <li class="menu-item">
-              <a href="create.php" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                <div data-i18n="Analytics">Create</div>
-              </a>
-            </li>
-            <!-- Layouts -->
-            <li class="menu-header small text-uppercase">
-              <span class="menu-header-text">Subject Files</span>
-            </li>
-            <li class="menu-item">
-              <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-dock-top"></i>
-                <div data-i18n="Account Settings">I</div>
-              </a>
-              <ul class="menu-sub">
-                <li class="menu-item">
-                  <a href="pages-account-settings-account.html" class="menu-link">
-                    <div data-i18n="Account">II</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="pages-account-settings-notifications.html" class="menu-link">
-                    <div data-i18n="Notifications">III</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="pages-account-settings-connections.html" class="menu-link">
-                    <div data-i18n="Connections">IV</div>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="menu-item">
-              <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-lock-open-alt"></i>
-                <div data-i18n="Authentications">II</div>
-              </a>
-              <ul class="menu-sub">
-                <li class="menu-item">
-                  <a href="auth-login-basic.html" class="menu-link" target="_blank">
-                    <div data-i18n="Basic">Login</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="auth-register-basic.html" class="menu-link" target="_blank">
-                    <div data-i18n="Basic">Register</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="auth-forgot-password-basic.html" class="menu-link" target="_blank">
-                    <div data-i18n="Basic">Forgot Password</div>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="menu-item">
-              <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-cube-alt"></i>
-                <div data-i18n="Misc">III</div>
-              </a>
-              <ul class="menu-sub">
-                <li class="menu-item">
-                  <a href="pages-misc-error.html" class="menu-link">
-                    <div data-i18n="Error">Error</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="pages-misc-under-maintenance.html" class="menu-link">
-                    <div data-i18n="Under Maintenance">Under Maintenance</div>
-                  </a>
-                </li>
-              </ul>
-            </li>
-                        <li class="menu-item">
-              <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-cube-alt"></i>
-                <div data-i18n="Misc">IV</div>
-              </a>
-              <ul class="menu-sub">
-                <li class="menu-item">
-                  <a href="pages-misc-error.html" class="menu-link">
-                    <div data-i18n="Error">Error</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="pages-misc-under-maintenance.html" class="menu-link">
-                    <div data-i18n="Under Maintenance">Under Maintenance</div>
-                  </a>
-                </li>
-              </ul>
-            </li>
-                        <li class="menu-item">
-              <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-cube-alt"></i>
-                <div data-i18n="Misc">V</div>
-              </a>
-              <ul class="menu-sub">
-                <li class="menu-item">
-                  <a href="pages-misc-error.html" class="menu-link">
-                    <div data-i18n="Error">Error</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="pages-misc-under-maintenance.html" class="menu-link">
-                    <div data-i18n="Under Maintenance">Under Maintenance</div>
-                  </a>
-                </li>
-              </ul>
-            </li>
-                        <li class="menu-item">
-              <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-cube-alt"></i>
-                <div data-i18n="Misc">VI</div>
-              </a>
-              <ul class="menu-sub">
-                <li class="menu-item">
-                  <a href="pages-misc-error.html" class="menu-link">
-                    <div data-i18n="Error">Error</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="pages-misc-under-maintenance.html" class="menu-link">
-                    <div data-i18n="Under Maintenance">Under Maintenance</div>
-                  </a>
-                </li>
-              </ul>
-            </li>
-                        <li class="menu-item">
-              <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-cube-alt"></i>
-                <div data-i18n="Misc">VII</div>
-              </a>
-              <ul class="menu-sub">
-                <li class="menu-item">
-                  <a href="pages-misc-error.html" class="menu-link">
-                    <div data-i18n="Error">Error</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="pages-misc-under-maintenance.html" class="menu-link">
-                    <div data-i18n="Under Maintenance">Under Maintenance</div>
-                  </a>
-                </li>
-              </ul>
-            </li>
-                        <li class="menu-item">
-              <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-cube-alt"></i>
-                <div data-i18n="Misc">VIII</div>
-              </a>
-              <ul class="menu-sub">
-                <li class="menu-item">
-                  <a href="pages-misc-error.html" class="menu-link">
-                    <div data-i18n="Error">Error</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="pages-misc-under-maintenance.html" class="menu-link">
-                    <div data-i18n="Under Maintenance">Under Maintenance</div>
-                  </a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </aside>
-        <!-- / Menu -->
+                <ul class="menu-inner py-1">
+                    <!-- Dashboard -->
+                    <li class="menu-item active">
+                        <a href="index.php" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                            <div data-i18n="Analytics">Home</div>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="create.php" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                            <div data-i18n="Analytics">Create</div>
+                        </a>
+                    </li>
+                    <!-- Layouts -->
+                    <li class="menu-header small text-uppercase">
+                        <span class="menu-header-text">Subject Files</span>
+                    </li>
+
+                </ul>
+                </ul>
+            </aside>
+            <!-- / Menu -->
 
 
             <!-- Layout container -->
@@ -277,7 +153,7 @@
                                             $id = $array['id'];
                                             //create get value based in the id
                                             $update = "update.php?update=" . $id;
-                                            $delete = "connection.php?delete=" . $id;
+                                            $delete = "index.php?delete=" . $id;
 
                                             // display individual parts of the array in HTML
                                             echo "
@@ -297,97 +173,33 @@
                                                 echo "
         <p class='mb-0'><strong>Addendum: </strong>{$array['addendum']}</p>
         <br>
-        "; }
-        echo "
+        ";
+                                            }
+                                            echo "
         <p><a href='{$update}' class='btn rounded-pill btn-success'>Update Record</a>\t\t\t<a href='{$delete}' class='btn rounded-pill btn-danger'>Delete Record</a></p>
         </div>
     
     ";
                                         } else {
-                                            echo "  
-        <div class='row row-cols-1 row-cols-md-3 g-4 mb-5'>
-                <div class='col'>
-                  <div class='card h-100'>
-                    <img class='card-img-top' src='./assets/images/scp/SCP001.jpg' alt='Card image cap' />
+                                            echo " <div class='row row-cols-1 row-cols-md-3 g-4 mb-5'>";
+                                            foreach ($randomV as $rnd) {
+                                                echo "
+                                                                                       
+                                                                                       <div class='col'>
+                  <div class='card h-100 bg-transparant'>
+                    <img class='card-img-top' src='./assets/images/scp_trans.png' alt='Card image cap' />
                     <div class='card-body'>
-                      <h5 class='card-title text-center'>SCP-001</h5>
+                      <h4 class='card-title text-center text-danger'>SCP-{$rnd['item']}</h4>
                       <p class='card-text'>
-                        This is a longer card with supporting text below as a natural lead-in to additional content.
-                        This content is a little bit longer.
+                       {" . substr($rnd['description'], 0, 300) . "...}
                       </p>
-                      <a class='btn btn-danger disabled' href='./subjects/scp-001.php'>Read More</a>
+                      <a class='btn btn-success' href='index.php?link={$rnd['item']}'>Read More</a>
                     </div>
                   </div>
                 </div>
-                <div class='col'>
-                  <div class='card h-100'>
-                    <img class='card-img-top' src='./assets/images/scp/SCP002.png' alt='Card image cap' />
-                    <div class='card-body'>
-                      <h5 class='card-title text-center'>SCP-002</h5>
-                      <p class='card-text'>
-                        This is a longer card with supporting text below as a natural lead-in to additional content.
-                        This content is a little bit longer.
-                      </p>
-                      <a class='btn btn-danger' href='./subjects/scp-002.php'>Read More</a>
-                    </div>
-                  </div>
-                </div>
-                <div class='col'>
-                  <div class='card h-100'>
-                    <img class='card-img-top' src='./assets/images/scp/SCP003.jpg' alt='Card image cap' />
-                    <div class='card-body'>
-                      <h5 class='card-title text-center'>SCP-002</h5>
-                      <p class='card-text'>
-                        This is a longer card with supporting text below as a natural lead-in to additional content.
-                        This content is a little bit longer.
-                      </p>
-                      <a class='btn btn-danger' href='./subjects/scp-003.php'>Read More</a>
-                    </div>
-                  </div>
-                </div>
-                <div class='col'>
-                  <div class='card h-100'>
-                    <img class='card-img-top' src='./assets/images/scp/SCP004.png' alt='Card image cap' />
-                    <div class='card-body'>
-                      <h5 class='card-title text-center'>SCP-004</h5>
-                      <p class='card-text'>
-                        This is a longer card with supporting text below as a natural lead-in to additional content.
-                        This content is a little bit longer.
-                      </p>
-                      <a class='btn btn-danger' href='./subjects/scp-004.php'>Read More</a>
-                    </div>
-                  </div>
-                </div>
-                <div class='col'>
-                  <div class='card h-100'>
-                    <img class='card-img-top' src='./assets/images/scp/SCP005.png' alt='Card image cap' />
-                    <div class='card-body'>
-                      <h5 class='card-title text-center'>SCP-005</h5>
-                      <p class='card-text'>
-                        This is a longer card with supporting text below as a natural lead-in to additional content.
-                        This content is a little bit longer.
-                      </p>
-                      <a class='btn btn-danger' href='./subjects/scp-005.php'>Read More</a>
-                    </div>
-                  </div>
-                </div>
-                <div class='col'>
-                  <div class='card h-100'>
-                    <img class='card-img-top' src='./assets/images/scp/SCP006.png' alt='Card image cap' />
-                    <div class='card-body'>
-                      <h5 class='card-title text-center'>SCP-006</h5>
-                      <p class='card-text'>
-                        This is a longer card with supporting text below as a natural lead-in to additional content.
-                        This content is a little bit longer.
-                      </p>
-                      <a class='btn btn-danger' href='./subjects/scp-006.php'>Read More</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-        ";
+                                                                                       ";
+                                            }
                                         }
-
 
 
 
