@@ -8,20 +8,12 @@ if (isset($_GET['delete'])) {
     $del = "delete from scp where id=$id";
 
     if ($conn->query($del) === TRUE) {
-        echo " 
-        <div class='row row-cols-1 row-cols-md-3 g-4 mb-5'>';
-            <div class='col'>
-              <div class='card h-100 bg-transparant'>
-                <div class='card-body'>
-                    <h1>Record Deleted</h1>
-                        <p><a href='index.php'>Back to Index Page</a></p>
-                    </div>
-                  </div>
-                </div>
-        </div>
-            ";
+            $status ="Entry+Deleted";
+            header("Location:status.php?delete=".$status);
+            exit();
     } else {
-        header("location: error.php");
+        $status = "Unable to delete";
+        header("location: status.php$error".$status);
         exit();
     }
 } //end of delete
@@ -142,20 +134,15 @@ if (isset($_GET['delete'])) {
                                         <?php
 
                                         if (isset($_GET['link'])) {
-                                            //trim the single quotes from the get value
+                                            
                                             $item = trim($_GET['link'], "'");
 
-                                            //run a SQL to retrieve record based on GET value
                                             $record = $conn->query("select * from scp where item='$item'");
                                             $array = $record->fetch_assoc();
 
-                                            //get the id field and save value
                                             $id = $array['id'];
-                                            //create get value based in the id
                                             $update = "update.php?update=" . $id;
                                             $delete = "index.php?delete=" . $id;
-
-                                            // display individual parts of the array in HTML
                                             echo "
 
         <div>

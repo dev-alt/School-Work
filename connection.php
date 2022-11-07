@@ -1,22 +1,25 @@
 <?php
 // Our Database credentials username and passwords
+    ini_set('error_reporting', E_ALL);
+    ini_set('display_errors', 1);
+    
 
+// Create connection
+try{
     $user = "a9957173_a9957173";
     $pw = "qD)ZWCYL2BPI";
     $db = "a9957173_scpdb";
-
-// Create connection
-    $conn = new mysqli('localhost', $user, $pw, $db);
     
-// Check connection
-//    if ($conn->connect_error) {
-//        die("Connection failed: " . $conn->connect_error);
-//    }
-//    echo "Connected successfully";
+    $conn = new mysqli('localhost', $user, $pw, $db);
+}
+catch (exception $e){
+        $error = "SQL+Connection+Error";
+        header("Location:status.php?error=".$error);
+        exit();
+}
 
+    
 
-
-    // variable that returns all records in the database
     $all_records = $conn->query("select * from scp order by item");
     $randomV = $conn->query("select * from scp order by rand() limit 6");
 

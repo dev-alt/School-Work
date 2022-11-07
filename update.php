@@ -21,14 +21,14 @@ include 'connection.php';
         
         if($conn->query($update) === TRUE)
         {
-            echo "
-                <h1>Record updated successfully</h1>
-                <p><a href='index.php'>Return to index page.</a></p>
-            ";
+            $status ="Update+Successful";
+            header("Location:status.php?update=".$status);
+            exit();
         }
         else
         {
-            header("location: error.php");
+            $error = "update+failed";
+            header("Location:status.php?error=".$error);
             exit();
         }
         

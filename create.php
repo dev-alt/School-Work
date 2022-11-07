@@ -18,14 +18,14 @@ if(isset($_POST['submit']))
 
         if($conn->query($insert) === TRUE)
         {
-            echo "
-            <h1>Record added successfully</h1>
-            <p><a href='index.php'>Return to index page</a></p>
-            ";
+           $status ="Record+Success";
+            header("Location:status.php?create=".$status);
+            exit();
         }
         else
         {
-            header("location: error.php");
+            $status ="Unable+to+create";
+            header("location:status.php$error".$status);
             exit();
                 
         }
