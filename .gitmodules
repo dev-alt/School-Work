@@ -1,0 +1,12 @@
+[submodule "scp_crud"]
+	path = scp_crud
+	url = https://github.com/dev-alt/scp_crud
+[submodule "scp_json"]
+	path = scp_json
+	url = https://github.com/dev-alt/scp_json
+[submodule "SCP"]
+	path = SCP
+	url = https://github.com/dev-alt/SCP
+[submodule "fuelApp"]
+	path = fuelApp
+	url = https://github.com/dev-alt/fuelApp
