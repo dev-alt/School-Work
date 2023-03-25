@@ -1,0 +1,125 @@
+.page-header {
+    padding: 0px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    background-size: cover;
+    background-position: 50% center;
+  }
+  .min-vh-75 {
+    min-height: 75vh !important;
+  }
+  .navbar .navbar-brand {
+    color: rgb(52, 71, 103);
+    font-size: 0.875rem;
+  }
+  .font-weight-bolder {
+    font-weight: 700 !important;
+  }
+
+  .navbar {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 2px 12px 0px;
+  }
+  
+  .navbar-brand {
+    padding-top: var(--bs-navbar-brand-padding-y);
+    padding-bottom: var(--bs-navbar-brand-padding-y);
+    margin-right: var(--bs-navbar-brand-margin-end);
+    font-size: var(--bs-navbar-brand-font-size);
+    color: var(--bs-navbar-brand-color);
+    white-space: nowrap;
+  }
+.top-0 {
+  top: 0 !important;
+}
+.z-index-sticky {
+  z-index: 1020;
+}
+
+  .navbar-collapse {
+    flex-basis: 100%;
+    flex-grow: 1;
+    align-items: center;
+  }
+  
+  body {
+    margin: 0px;
+    font-family: var(--bs-body-font-family);
+    font-size: var(--bs-body-font-size);
+    font-weight: var(--bs-body-font-weight);
+    line-height: var(--bs-body-line-height);
+    color: var(--bs-body-color);
+    text-align: var(--bs-body-text-align);
+    background-color: var(--bs-body-bg);
+    text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+  .text-md {
+    font-size: 1rem !important;
+  }
+  .material-icons {
+    font-family: "Material Icons Round";
+    font-weight: normal;
+    font-style: normal;
+    font-size: 20px;
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    overflow-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizelegibility;
+    font-feature-settings: "liga";
+  }
+  html * {
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .navbar-default {
+    background: none;
+}
+
+.top-0 {
+  top: 0px !important;
+}
+.end-0 {
+  right: 0px !important;
+}
+.py-2 {
+  padding-top: 0.5rem !important;
+  padding-bottom: 0.5rem !important;
+}
+.border-radius-xl {
+  border-radius: 0.75rem;
+}
+
+.blur {
+  box-shadow: rgba(254, 254, 254, 0.82) 0px 0px 2px inset;
+  backdrop-filter: saturate(200%) blur(30px);
+  background-color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.start-0 {
+  left: 0px !important;
+}
+.position-sticky {
+  position: sticky !important;
+}
+
+.my-3 {
+  margin-top: 1rem !important;
+  margin-bottom: 1rem !important;
+}
+
+.mx-4 {
+  margin-right: 1.5rem !important;
+  margin-left: 1.5rem !important;
+}
+
+.bg-gray-200 {
+    background-color: rgb(240, 242, 245) !important;
+  }
+  
